@@ -4,12 +4,10 @@ import BoxJogo from '../../components/boxGame'
 
 const Home: React.FC = () => {
     return (
-        <div className='w-full h-full bg-black'>
+         <div className='w-full h-screen bg-zinc-950'>
             <Banner />
             <BoxJogo nome='Jogo' desconto='60' preco='120'/>
-        </div>
-        
-
+         </div>  
     );
 }
 

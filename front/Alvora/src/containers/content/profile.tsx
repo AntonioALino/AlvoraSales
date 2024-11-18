@@ -2,9 +2,9 @@ import React from 'react';
 
 const Perfil: React.FC = () => {
     return (
-
-        <h1>teste Perfil</h1>
-
+        <div className='w-full h-screen bg-zinc-950 flex items-center justify-center'>
+            
+        </div>  
     );
 }
 

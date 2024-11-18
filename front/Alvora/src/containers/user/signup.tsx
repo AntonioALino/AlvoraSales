@@ -2,9 +2,9 @@ import React from 'react';
 
 const Signup: React.FC = () => {
     return (
-
-        <h1>teste signup</h1>
-
+        <div className='w-full h-screen bg-zinc-950 flex items-center justify-center'>
+            
+        </div>  
     );
 }
 
