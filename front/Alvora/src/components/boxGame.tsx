@@ -1,4 +1,5 @@
 import React from 'react';
+import Cart from '../assets/Cart.svg';
 
 interface BoxGameProps {
   nome: string;
@@ -9,14 +10,25 @@ interface BoxGameProps {
 const BoxGame: React.FC<BoxGameProps> = ({ nome, desconto, preco }) => {
   return (
     <div
-      className="w-56 h-50 bg-neutral-800 flex flex-col items-center justify-center text-white p-4 rounded-lg gap-2"
+      className="w-80 h-52 bg-neutral-800 flex flex-col items-center justify-between text-white p-4 rounded-lg py-10"
     >
-      <h1 className="text-lg font-bold">{nome}</h1>
-      <div className="flex gap-2">
+      <h1 className="text-lg font-bold overflow-hidden">{nome}</h1>
+      <div className="flex gap-4">
         <h2 className="bg-palette-red-light text-white text-md rounded-md">- {desconto}%</h2>
         <h2 className="text-md">Preço: R${preco}</h2>
       </div>
-      <button className='bg-green-800 w-full rounded-md'>Botao</button>
+      <button className='bg-palette-blue-green w-full rounded-sm flex gap-5 items-center justify-center'>
+        <p>Comprar</p>
+        <img src={Cart} />
+      </button>
+      <div className='gap-5 w-full rounded-sm'>
+        <button className='bg-palette-red-light w-1/2'>
+          <p>Delete</p>
+        </button>
+        <button className='bg-yellow-600 w-1/2'>
+          <p>Edit</p>
+        </button>
+      </div>
     </div>
   );
 };
