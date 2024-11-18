@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FormEvent } from "react";
 import InputField from "./input"; 
 import Button from "./button";
 
@@ -9,21 +9,33 @@ const FormCadastro: React.FC = () => {
     confirmarSenha: "",
   });
 
+   // Tipando o evento de submissão
+   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Evita o envio padrão do formulário
+    try {
+        const response = await fetch('http://localhost:8080/alvora/user/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+        if (response.ok) {
+            const result = await response.json();
+            console.log('Sucesso:', result);
+        } else {
+            console.error('Erro ao enviar:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Erro de rede:', error);
+    }
+};
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (formData.senha !== formData.confirmarSenha) {
-      alert("As senhas não coincidem!");
-      return;
-    }
-
-    console.log("Dados do formulário de cadastro:", formData);
-  };
-
+  
   return (
     <form onSubmit={handleSubmit} className="form-container space-y-6">
       <h2 className="text-white text-2xl font-semibold">Cadastre-se</h2>
