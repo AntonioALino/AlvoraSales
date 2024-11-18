@@ -18,7 +18,8 @@ const Nav: React.FC = () => {
             items-center">
                 <Link className='
                 flex gap-3
-                text-3xl'
+                text-3xl
+                hover:opacity-70'
                  to="/"> 
                     <div className="
                     w-10">
@@ -26,7 +27,7 @@ const Nav: React.FC = () => {
                     </div>
                     <h1>Alvora</h1>
                 </Link>
-                <Link to='/new_sale'>
+                <Link className="hover:opacity-70" to='/new_sale'>
                     <div className="
                     flex gap-3 items-center">
                         <img className="h-5" src={Add} alt='icone de adicionar'></img>
@@ -36,17 +37,17 @@ const Nav: React.FC = () => {
             </div>
             <div className="
             flex gap-10 items-center">
-                <Link to="/signup"> 
+                <Link className="hover:opacity-70" to="/signup"> 
                     <div className="
                     text-palette-blue-green
                     felx p-1.5 px-6
                     border-palette-blue-green border-2
                     rounded-md
-                    font-normal">
+                    font-medium">
                         <h1>Cadastrar</h1>
                     </div>
                 </Link>
-                <Link to="/login"> 
+                <Link className='hover:opacity-70' to="/login"> 
                     <div className="
                     bg-palette-blue-green
                     text-white
