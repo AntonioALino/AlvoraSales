@@ -81,7 +81,7 @@ const Form: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-container space-y-6">
+    <form onSubmit={handleSubmit} action="http://localhost:8080/alvora/games/register" method="POST" className="form-container space-y-6">
       <h2 className="text-white text-2xl font-semibold">Adicione um desconto</h2>
 
       {successMessage && <p className="text-green-500">{successMessage}</p>}
@@ -130,7 +130,7 @@ const Form: React.FC = () => {
         </select>
       </div>
 
-      <Button label="Salvar" />
+      <Button label="Salvar"  />
     </form>
   );
 };

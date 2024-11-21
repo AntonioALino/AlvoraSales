@@ -35,6 +35,16 @@ const FormCadastro: React.FC = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (formData.senha !== formData.confirmarSenha) {
+      alert("As senhas não coincidem!");
+      return;
+    }
+
+    console.log("Dados do formulário de cadastro:", formData);
+  };
 
   return (
     <form onSubmit={handleSubmit} className="form-container space-y-6">
