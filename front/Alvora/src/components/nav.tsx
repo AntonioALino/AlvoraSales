@@ -34,6 +34,12 @@ const Nav: React.FC = () => {
                         <h1>Adicionar Desconto</h1>
                     </div>
                 </Link>
+                <Link className="hover:opacity-70" to='/usuarios'>
+                    <div className="
+                    flex gap-3 items-center">
+                        <h1>Usuarios</h1>
+                    </div>
+                </Link>
             </div>
             <div className="
             flex gap-10 items-center">

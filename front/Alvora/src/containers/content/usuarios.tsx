@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Form from "../../components/Forms/editarUser"
+import Users from "../../components/Forms/usuarios"
 
 
 const NewSale: React.FC = () => {
     return (
         <div className='w-full h-screen bg-zinc-950 flex items-center justify-center'>
-            <div className='w-1/2 bg-palette-black p-8 rounded-lg'><Form /></div>
+            <div className='w-1/2 bg-palette-black p-8 rounded-lg'><Users /></div>
         </div>
     );
 }

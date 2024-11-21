@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Cart from '../assets/Cart.svg';
 
 interface BoxGameProps {
@@ -8,6 +9,25 @@ interface BoxGameProps {
 }
 
 const BoxGame: React.FC<BoxGameProps> = ({ nome, desconto, preco }) => {
+  const handleDelete = async () => {
+    try {
+        const response = await fetch('http://localhost:3000/alvora/game/edit', {
+            method: 'DELETE', 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            console.log('Recurso deletado com sucesso');
+        } else {
+            console.error('Erro ao deletar:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Erro de rede:', error);
+    }
+};
+
   return (
     <div
       className="w-80 h-52 bg-neutral-800 flex flex-col items-center justify-between text-white p-4 rounded-lg py-10"
@@ -21,13 +41,18 @@ const BoxGame: React.FC<BoxGameProps> = ({ nome, desconto, preco }) => {
         <p>Comprar</p>
         <img src={Cart} />
       </button>
-      <div className='gap-5 w-full rounded-sm'>
-        <button className='bg-palette-red-light w-1/2'>
-          <p>Delete</p>
+      <div className='gap-5 w-full rounded-sm flex'>
+        <button 
+            onClick={handleDelete} 
+            className="bg-palette-red-light w-full py-2 text-white rounded-md hover:bg-palette-red-dark"
+        >
+            <p>Delete</p>
         </button>
-        <button className='bg-yellow-600 w-1/2'>
-          <p>Edit</p>
-        </button>
+        <Link to='/edit' className='w-full h-full' >
+          <div className=' flex bg-yellow-600 h-full py-2 rounded-md items-center justify-center'>
+            <p>Edit</p>
+          </div>
+        </Link>
       </div>
     </div>
   );
